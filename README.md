@@ -12,11 +12,3 @@ A simple script that runs in the background and sends coinbase prices periodical
 7. In line 7, enter in your discord webhook. You can google how to make a discord webhook.
 8. cd into the folder that the script is in. Example: ```cd documents/github/discord-coinbase-bot```
 9. ```python3 main.py``` or if you're on windows, ```python main.py```
-
-# Credits
-www.github.com/antonjlin
-* Donate me a cup of coffee using:
-*   BTC: 1PxNNeap6YvuefLuDSTykGBA5Y4xHnvtxB
-*   ETH: 0x00B68816864d9e334FDF5f5eeb032D1DC57951D4
-*   LTC: LfkfCoeJL5z6fARtZJKpFfMaNqXnA5GAhy
-# discord-crypto-webhook
