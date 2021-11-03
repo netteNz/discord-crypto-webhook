@@ -4,14 +4,9 @@ import requests
 import json
 
 delay = 1800 #seconds
-discordWebhook = 'MY_WEBHOOK' #enter in your webhook url
+discordWebhook = "https://discord.com/api/webhooks/905230201091416134/ePdWQ3EiFlYrxhAYQhG3l5UyJ_BiNH5zTl9i4nz7f5OFze4tdNHLFsCDwVIZBSNsvFnp" #enter in your webhook url
+discordWebhook2 = "https://discord.com/api/webhooks/905229625259589693/1NwJmXbbhTC4uaHISWMgL3pswrmSOFx85SMhmQK4PKiyPkrOUtT28jbClEjbI9Nl59ws"
 
-'''
-donate me a cup of coffee using:
-BTC: 1PxNNeap6YvuefLuDSTykGBA5Y4xHnvtxB
-ETH: 0x00B68816864d9e334FDF5f5eeb032D1DC57951D4
-LTC: LfkfCoeJL5z6fARtZJKpFfMaNqXnA5GAhy
-'''
 def getPrice(currency):
     priceUrl = 'https://api.coinbase.com/v2/prices/{}-USD/spot'.format(currency)
     r = requests.get(priceUrl)
@@ -21,8 +16,9 @@ def getPrice(currency):
 while True:
     btc = getPrice('BTC')
     eth = getPrice('ETH')
-    ltc = getPrice('LTC')
-    bch = getPrice('BCH')
+    shib = getPrice('SHIB')
+    sol = getPrice('SOL')
+    jas = getPrice('JASMY')
     timestamp = datetime.utcnow().replace(microsecond=0).isoformat()
     embeds = [{
         'type': 'rich',
@@ -41,18 +37,24 @@ while True:
 
           },
           {
-            "name": "LTC:",
-            "value": '$' + str(ltc),
+            "name": "SHIB:",
+            "value": '$' + str(shib),
             "inline": True
           },
             {
-              "name": "BCH:",
-              "value": '$' + str(bch),
+              "name": "SOL:",
+              "value": '$' + str(sol),
+              "inline": True
+            },
+            {
+              "name": "JASMY",
+              "value": '$' + str(jas),
               "inline": True
             }
           ]
         }]
     payload = {"embeds": embeds}
     r = requests.post(discordWebhook,json=payload)
+    r = requests.post(discordWebhook2,json=payload)
     print(timestamp) #print to console to make sure program isnt frozen
     time.sleep(delay)
